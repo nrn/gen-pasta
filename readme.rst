@@ -1,5 +1,5 @@
 ===============================================================================
-Pasta
+General Pasta
 ===============================================================================
 
 A collection of general functions that I have found myself copy pastaing around.
