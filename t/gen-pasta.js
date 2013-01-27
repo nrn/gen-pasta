@@ -2,7 +2,7 @@ var p = require('../gen-pasta')()
   , test = require('tape')
 
 test('General', function (t) {
-  t.plan(6)
+  t.plan(9)
 
   t.doesNotThrow(p.log, 'Log does not throw')
 
@@ -20,6 +20,13 @@ test('General', function (t) {
   t.equal(p.last('asdf'), 'f', 'Last character')
 
   t.equal(p.last(1234), 4, 'Last diget')
+
+  var obj1 = { foo: 'bar'}
+  var obj2 = { a: 42 }
+  var combined = p.combine(obj1, obj2)
+  t.equal(combined.a, 42, 'Combined')
+  t.equal(combined, obj1, 'obj2 and combined reference the same obj')
+  t.equal(obj2.foo, undefined, 'a stays the same')
 
 })
 

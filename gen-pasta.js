@@ -11,6 +11,13 @@ function genPasta (opts) {
     if (console && console.log) console.log(arrify(arguments))
   }
 
+  function combine (returned, added) {
+    Object.keys(added).forEach(function (key) {
+      returned[key] = added[key]
+    })
+    return returned
+  }
+
   function last(item) {
     var num = false
     if (typeof item === 'number') return +item.toString().split('').pop()
@@ -25,6 +32,7 @@ function genPasta (opts) {
     , l: log
     , last:last
     , arrify: arrify
+    , combine: combine
     }
 
 }
