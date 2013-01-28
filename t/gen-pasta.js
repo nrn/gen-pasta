@@ -2,7 +2,7 @@ var p = require('../gen-pasta')()
   , test = require('tape')
 
 test('General', function (t) {
-  t.plan(9)
+  t.plan(12)
 
   t.doesNotThrow(p.log, 'Log does not throw')
 
@@ -27,6 +27,9 @@ test('General', function (t) {
   t.equal(combined.a, 42, 'Combined')
   t.equal(combined, obj1, 'obj2 and combined reference the same obj')
   t.equal(obj2.foo, undefined, 'a stays the same')
+  t.equal(p.flatten([ 'a', 'b', 'c' ]), 'abc', 'Flatten Normal')
+  t.equal(p.flatten(1), '1', 'Flatten nothing')
+  t.equal(p.flatten([1, [2, [3, [4, [5 ]]]]]), '12345', 'Flatten Nest')
 
 })
 
