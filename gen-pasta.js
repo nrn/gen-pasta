@@ -48,6 +48,7 @@ function genPasta (opts) {
     , l: log
     , last:last
     , first: first
+    , list: list
     , flatten: flatten
     , arrify: arrify
     , combine: combine
