@@ -2,7 +2,7 @@ var p = require('../gen-pasta')()
   , test = require('tape')
 
 test('General', function (t) {
-  t.plan(12)
+  t.plan(16)
 
   t.doesNotThrow(p.log, 'Log does not throw')
 
@@ -20,6 +20,14 @@ test('General', function (t) {
   t.equal(p.last('asdf'), 'f', 'Last character')
 
   t.equal(p.last(1234), 4, 'Last diget')
+
+  t.equal(p.first([1, 2, 3]), 1, 'first element')
+
+  t.equal(p.first({ c: 3, a: 1, b: 2}), 'c', 'first key')
+
+  t.equal(p.first('asdf'), 'a', 'first character')
+
+  t.equal(p.first(1234), 1, 'first diget')
 
   var obj1 = { foo: 'bar'}
   var obj2 = { a: 42 }

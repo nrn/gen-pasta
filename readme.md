@@ -21,6 +21,11 @@ Add everything from obj2 into obj1 and return obj1.
 Attempt to return the last element from item, whatever
 item might be.
 
+##first(item)
+
+Attempt to return the first element from item, whatever
+item might be.
+
 ##flatten(arr)
 
 Steamrolls nested arrays into a string.

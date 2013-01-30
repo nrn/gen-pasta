@@ -18,12 +18,25 @@ function genPasta (opts) {
     return returned
   }
 
-  function last(item) {
-    if (typeof item === 'number') return +item.toString().split('').pop()
-    if (typeof item === 'string') return item.split('').pop()
-    if (Array.isArray(item)) return item.pop()
-    if (typeof item === 'object') return Object.keys(item).pop()
+  function last (item) {
+    var tmp = list(item)
+    if (tmp) return tmp[tmp.length - 1]
     return item
+  }
+
+  function first (item) {
+    var tmp = list(item)
+    if (tmp) return tmp[0]
+    return item
+  }
+  
+  function list (item) {
+    if (typeof item === 'number') {
+      return item.toString().split('').map(function (a) { return +a })
+    }
+    else if (typeof item === 'string') return item.split('')
+    else if (Array.isArray(item)) return item
+    else if (typeof item === 'object') return Object.keys(item)
   }
 
   function flatten (arr) {
@@ -34,6 +47,7 @@ function genPasta (opts) {
   return { log: log
     , l: log
     , last:last
+    , first: first
     , flatten: flatten
     , arrify: arrify
     , combine: combine
