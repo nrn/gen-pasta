@@ -3,12 +3,12 @@
 function genPasta (opts) {
   // GENERAL Functions
   //
-  function arrify (arr) {
-    return Array.prototype.slice.apply(arr)
+  function slice (ar, start, end) {
+    return Array.prototype.slice.call(ar, start, end)
   }
 
   function log () {
-    if (console && console.log) console.log(arrify(arguments))
+    if (console && console.log) console.log(slice(arguments))
   }
 
   function combine (returned, added) {
@@ -50,8 +50,10 @@ function genPasta (opts) {
     , first: first
     , list: list
     , flatten: flatten
-    , arrify: arrify
+    , slice: slice
     , combine: combine
+    // Depricated names
+    , arrify: slice
     }
 
 }

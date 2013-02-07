@@ -2,15 +2,20 @@ var p = require('../gen-pasta')()
   , test = require('tape')
 
 test('General', function (t) {
-  t.plan(16)
 
   t.doesNotThrow(p.log, 'Log does not throw')
 
-  t.equal((function () {
-      return p.arrify(arguments)
-    })(1, 2, 3).join()
-    , [1, 2, 3].join()
+  t.same((function () {
+      return p.slice(arguments)
+    })(1, 2, 3)
+    , [1, 2, 3]
     , 'Turn array like objects into arrays'
+  )
+  t.same((function () {
+      return p.slice(arguments, 1, 2)
+    })(1, 2, 3)
+    , [ 2 ]
+    , 'Turn array like objects into arrays, w/ start/end'
   )
 
   t.equal(p.last([1, 2, 3]), 3, 'Last element')
@@ -39,5 +44,6 @@ test('General', function (t) {
   t.equal(p.flatten(1), '1', 'Flatten nothing')
   t.equal(p.flatten([1, [2, [3, [4, [5 ]]]]]), '12345', 'Flatten Nest')
 
+  t.end()
 })
 

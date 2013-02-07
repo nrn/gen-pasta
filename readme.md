@@ -8,9 +8,9 @@ I am trying to separate the pasta into useful strands.
 
 Takes any number of args and logs them if it can.
 
-##arrify(obj)
+##slice(obj[, start, end])
 
-Take an array like object and return a real array.
+Take an array like object and return a real array. Optional start/end.
 
 ##combine(obj1, obj2)
 
